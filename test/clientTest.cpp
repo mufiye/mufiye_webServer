@@ -33,14 +33,34 @@ void *doClient(void *data)
     // clientAddr->sin_family = AF_INET;
     // clientAddr->sin_addr.s_addr = INADDR_ANY;
     // clientAddr->sin_port = htons(10000 + i);
-    sleep(rand() % 5);
+    /*
+    *让客户端随机睡一段时间
+    */
+    // sleep(rand() % 5);
     //如果服务器端是非阻塞IO，这里会返回EINPROGRESS错误
     if(connect(clientFd, (sockaddr *)&serverAddr, servAddrSize)<0  &&  errno == EINPROGRESS){
         printf("encounter EINPROGRESS, but it's all right\n");
     }
+    /*
+    *写操作验证模块   
+    */
+    int byteNum;
     char buf[1024];
-    int numBytes;
-    if ((numBytes = recv(clientFd, buf, sizeof(buf), 0)) <= 0)
+    memset(&buf, 0, sizeof(buf));
+    sprintf(buf, "hello,server,my tid is %ld", pthread_self());
+    if ((byteNum = send(clientFd, buf, strlen(buf), 0)) <= 0)
+    {
+        perror("some wrong when send()");
+    }
+    else
+    {
+        printf("My pthread id is: %ld, and I send successfully.\n", pthread_self());
+    }
+    /*
+    *读操作验证模块
+    */
+    memset(&buf, 0, sizeof(buf));
+    if ((byteNum = recv(clientFd, buf, sizeof(buf), 0)) <= 0)
     {
         perror("some wrong when read()");
     }

@@ -140,11 +140,11 @@ int main()
         else
         {
             printf("accept success, connection file descriptor is %d\n", connFd);
+            pthread_t tid;
+            args[i] = connFd;
+            pthread_create(&tid, NULL, doWork, (void *)&args[i]);
+            i++;
         }
-        pthread_t tid;
-        args[i] = connFd;
-        pthread_create(&tid, NULL, doWork, (void *)&args[i]);
-        i++;
     }
     //------------------------------------------------------------
     /*

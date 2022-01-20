@@ -24,3 +24,13 @@
 #### sub-try3
 * 需求：编写使用poll/epoll(select可写可不写)的程序，多输入源，一个键盘，一个accept，一个connfd
 * 目的：了解poll/epoll
+#### sub-try4
+* 需求：优化现有的makefile
+#### sub-try5
+* 需求：写一个http处理类
+#### sub-try6
+* 需求：写一个生产者消费者缓冲区
+#### sub-try7
+* 需求：写一个读写buffer，将要用到的读写方法进行封装
+#### sub-try8
+* 需求：写一个线程池
