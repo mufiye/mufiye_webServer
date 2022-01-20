@@ -21,8 +21,8 @@
 #### sub-try2（已完成-2022.1.19）
 * 需求：编写多线程的服务器端程序以及可以测试多线程服务器程序的客户端程序
 * 目的：了解多线程编程，编写出测试类
-#### sub-try3
-* 需求：编写使用poll/epoll(select可写可不写)的程序，多输入源，一个键盘，一个accept，一个connfd
+#### sub-try3（已完成-2022.1.20）
+* 需求：编写使用poll/epoll(select可写可不写)的程序，主线程accpet,子线程IO多路复用处理IO事件
 * 目的：了解poll/epoll
 #### sub-try4
 * 需求：优化现有的makefile
