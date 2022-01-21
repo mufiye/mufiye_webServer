@@ -12,12 +12,25 @@
 #include <sys/epoll.h>
 #include <cstdlib>
 #include <ctime>
+#include "http_response.h"
 
 const int BACKLOG = 10000; //10K，表示已连接的队列的大小
+int lisFd;  //监听端口
+
+void handleCC(int signo)
+{
+    if (lisFd >= 0)
+    {
+        close(lisFd);
+        printf("close listen socket\n");
+    }
+    printf("process exits by ctrl+c\n");
+    exit(0);
+}
 
 int main()
 {
-    int lisFd;  //监听端口
+    signal(SIGINT, handleCC);
     int connFd; //连接端口
     lisFd = socket(AF_INET, SOCK_STREAM, 0);
     sockaddr_in serverAddr, clientAddr;
@@ -55,9 +68,14 @@ int main()
         connFd = accept(lisFd, (sockaddr *)&clientAddr, &clientLen);
         memset(&buf, 0, sizeof(buf));
         printf("the connection is established\n");
+        printf("the new connection socket is: %d\n",connFd);
         /**
          * 读取、处理和发送http数据
          */
+        http_response http_re;
+        char *buffer = http_re.encode_response();
+        send(connFd,buffer,strlen(buffer),0);
+        //sleep(10);
         close(connFd);
         printf("the connection is closed\n");
     }
