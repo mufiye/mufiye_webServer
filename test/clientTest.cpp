@@ -27,7 +27,7 @@ void *doClient(void *data)
     sockaddr_in serverAddr;
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
-    serverAddr.sin_port = htons(12350);
+    serverAddr.sin_port = htons(10000);
     socklen_t servAddrSize = sizeof(serverAddr);
     // sockaddr_in *clientAddr;
     // clientAddr->sin_family = AF_INET;
@@ -36,37 +36,43 @@ void *doClient(void *data)
     /*
     *让客户端随机睡一段时间
     */
-    // sleep(rand() % 5);
+    //sleep(rand() % 5);
     //如果服务器端是非阻塞IO，这里会返回EINPROGRESS错误
-    if(connect(clientFd, (sockaddr *)&serverAddr, servAddrSize)<0  &&  errno == EINPROGRESS){
-        printf("encounter EINPROGRESS, but it's all right\n");
-    }
-    /*
-    *写操作验证模块   
-    */
-    int byteNum;
-    char buf[1024];
-    memset(&buf, 0, sizeof(buf));
-    sprintf(buf, "hello,server,my tid is %ld", pthread_self());
-    if ((byteNum = send(clientFd, buf, strlen(buf), 0)) <= 0)
+    while (1)
     {
-        perror("some wrong when send()");
-    }
-    else
-    {
-        printf("My pthread id is: %ld, and I send successfully.\n", pthread_self());
-    }
-    /*
-    *读操作验证模块
-    */
-    memset(&buf, 0, sizeof(buf));
-    if ((byteNum = recv(clientFd, buf, sizeof(buf), 0)) <= 0)
-    {
-        perror("some wrong when read()");
-    }
-    else
-    {
-        printf("My pthread id is: %ld, and I receive: %s.\n", pthread_self(), buf);
+        if (connect(clientFd, (sockaddr *)&serverAddr, servAddrSize) < 0 && errno == EINPROGRESS)
+        {
+            printf("encounter EINPROGRESS, but it's all right\n");
+            continue;
+        }
+        /*
+        *写操作验证模块   
+        */
+        int byteNum;
+        char buf[1024];
+        memset(&buf, 0, sizeof(buf));
+        sprintf(buf, "hello,server,my tid is %ld", pthread_self());
+        if ((byteNum = send(clientFd, buf, strlen(buf), 0)) <= 0)
+        {
+            perror("some wrong when send()");
+        }
+        else
+        {
+            printf("My pthread id is: %ld, and I send successfully.\n", pthread_self());
+        }
+        /*
+        *读操作验证模块
+        */
+        memset(&buf, 0, sizeof(buf));
+        if ((byteNum = recv(clientFd, buf, sizeof(buf), 0)) <= 0)
+        {
+            perror("some wrong when read()");
+        }
+        else
+        {
+            printf("My pthread id is: %ld, and I receive: %s.\n", pthread_self(), buf);
+        }
+        break;
     }
     close(clientFd);
     return nullptr;

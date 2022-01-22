@@ -10,8 +10,8 @@
 * thread_pool: 线程池（用于业务线程，io线程不怎么一样）
 * io_thread: io线程的抽象？（实际编写的时候可能io线程不做抽象）
 * tcp_connection: 存储tcp连接的信息
-* work_queue: 生产者消费者队列，包含tcp_connection，实际应用时要创建两个队列，一个是io相关的，一个是业务相关的
-* buffer: 缓冲器，用于读写
+* block_queue: 生产者消费者队列，包含tcp_connection，实际应用时要创建两种队列，一个是io相关的，一个是业务相关的
+* rw_buffer: 缓冲区，用于读写
 ### 测试
 使用webbench v1.5
 ### 一些尝试
@@ -38,5 +38,9 @@
 * 需求：写一个线程池类
 #### sub-try9
 * 需求：写一个tcp连接类
-#### sub-try10
-* 需求：将服务器的accept功能封装成一个类
+#### sub-try10（已完成-2022.1.22）
+* 需求：将服务器的accept功能封装成一个类，使用非阻塞IO
+#### sub-try11（进行中）
+* 关于cgi
+#### sub-try12
+* 需求：使http报文能够请求和传递图片（作为sub-Try5的补充）
