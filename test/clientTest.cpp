@@ -45,21 +45,24 @@ void *doClient(void *data)
             printf("encounter EINPROGRESS, but it's all right\n");
             continue;
         }
+
+        int byteNum;
+        char buf[1024];
         /*
         *写操作验证模块   
         */
-        int byteNum;
-        char buf[1024];
-        memset(&buf, 0, sizeof(buf));
-        sprintf(buf, "hello,server,my tid is %ld", pthread_self());
-        if ((byteNum = send(clientFd, buf, strlen(buf), 0)) <= 0)
-        {
-            perror("some wrong when send()");
-        }
-        else
-        {
-            printf("My pthread id is: %ld, and I send successfully.\n", pthread_self());
-        }
+
+        // memset(&buf, 0, sizeof(buf));
+        // sprintf(buf, "hello,server,my tid is %ld", pthread_self());
+        // if ((byteNum = send(clientFd, buf, strlen(buf), 0)) <= 0)
+        // {
+        //     perror("some wrong when send()");
+        // }
+        // else
+        // {
+        //     printf("My pthread id is: %ld, and I send successfully.\n", pthread_self());
+        // }
+        
         /*
         *读操作验证模块
         */
