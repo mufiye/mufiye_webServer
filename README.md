@@ -5,14 +5,14 @@
 ### 设计
 多方面考虑，事件处理模式为：主线程监听和建立连接、读取数据、发送数据，子线程（预先创建于线程池中）进行业务处理。（Proactor模式）
 ### 实现
-语言：C++
-类抽象：
-* thread_pool：线程池
-* locker：同步互斥机制封装类
-* acceptor：listen套接字封装类
-* buffer：读写缓冲区
-* tcp_connection：tcp连接封装类
-* simple_connection：在tcp事务处理中代替http_connection
+* 语言：C++
+* 类抽象：
+  * thread_pool：线程池
+  * locker：同步互斥机制封装类
+  * acceptor：listen套接字封装类
+  * buffer：读写缓冲区
+  * tcp_connection：tcp连接封装类
+  * simple_connection：在tcp事务处理中代替http_connection
 ### 测试
 使用webbench v1.5
 ### 一些尝试
