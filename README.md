@@ -57,3 +57,9 @@
 * A1：?
 * Q2：该处理流程是主线程监听端口并建立连接，IO事件交给IO线程处理，业务交给业务线程处理，那么要如何实现主线程、IO线程和业务线程的任务传递呢？
 * A2：?
+## 参考
+1. [linux高性能服务器编程（游双）源码](https://github.com/luckyhappycat/high_performance_linux_server_programming)
+2. [TinyWebServer](https://github.com/qinguoyi/TinyWebServer)
+3. [网络编程实战_极客时间_yolanda](https://github.com/froghui/yolanda)
+4. [Tinyhttpd](https://github.com/EZLippi/Tinyhttpd)
+5. [WebBench](https://github.com/EZLippi/WebBench)
