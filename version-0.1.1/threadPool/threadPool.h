@@ -10,7 +10,7 @@
 #ifndef THREADPOOL_H
 #define THREADPOOL_H
 
-#include "locker.h"
+#include "../locker/locker.h"
 
 
 template <typename T>

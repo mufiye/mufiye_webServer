@@ -21,7 +21,7 @@ private:
 public:
     simple_connection(/* args */);
     ~simple_connection();
-    void process();
+    virtual void process();
 };
 
 #endif

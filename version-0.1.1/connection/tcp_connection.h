@@ -12,7 +12,7 @@
 #ifndef TCP_CONNECTION_H
 #define TCP_CONNECTION_H
 
-#include "rw_buffer.h"
+#include "../buffer/rw_buffer.h"
 
 class tcp_connection
 {
@@ -26,12 +26,22 @@ protected:
 
     rw_buffer *input_buffer;
     rw_buffer *output_buffer;
+    static std::map<int,tcp_connection*> mp;
+    static int m_epollFd;
 
 public:
     tcp_connection(/* args */);
     ~tcp_connection();
+    void setConnFd(int connFd);
+    int getConnFd();
+    int read_data();
+    int send_data();
     rw_buffer *get_input_buffer();
     rw_buffer *get_output_buffer();
+    static void insert_tcp_conn(int fd, tcp_connection* tcp_conn);
+    static tcp_connection* get_tcp_conn(int fd);
+    static void set_epollFd(int);
+    virtual void process() = 0;
 };
 
 #endif

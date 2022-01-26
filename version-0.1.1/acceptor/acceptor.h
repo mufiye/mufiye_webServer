@@ -1,7 +1,7 @@
 #ifndef ACCEPTOR_H
 #define ACCEPTOR_H
 
-#include "common.h"
+#include "../common/common.h"
 
 const int LISTENQ = 10000;
 class acceptor

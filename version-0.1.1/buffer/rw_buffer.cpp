@@ -1,11 +1,14 @@
 #include "rw_buffer.h"
 
+const char *CRLF = "\r\n";
+const int INIT_BUFFER_SIZE = 65536;
+
 rw_buffer::rw_buffer(/* args */)
 {
     this->data = (char *)malloc(INIT_BUFFER_SIZE);
     this->total_size = INIT_BUFFER_SIZE;
     this->readIndex = 0;
-    this->writeIndex = 0;   
+    this->writeIndex = 0;
 }
 
 rw_buffer::~rw_buffer()
@@ -13,37 +16,67 @@ rw_buffer::~rw_buffer()
     free(this->data);
 }
 
+/* 为了读取数据，应该有封装性更好的方法 */
+char* rw_buffer::get_buffer_data(){
+    return this->data;
+}
+
+int rw_buffer::get_buffer_read_index()
+{
+    return this->readIndex;
+}
+int rw_buffer::get_buffer_write_index()
+{
+    return this->writeIndex;
+}
+
 /* 获取可写的空间数量 */
-int rw_buffer::get_buffer_writeable_size(){
+int rw_buffer::get_buffer_writeable_size()
+{
     return this->total_size - this->writeIndex;
 }
 
 /* 获取可读的空间数量 */
-int rw_buffer::get_buffer_readable_size(){
+int rw_buffer::get_buffer_readable_size()
+{
     return this->total_size - this->readIndex;
 }
 
 /* 获取空闲的空间数量 */
-int rw_buffer::get_buffer_front_spare_size(){
+int rw_buffer::get_buffer_front_spare_size()
+{
     return this->readIndex;
 }
 
-void rw_buffer::make_room(int size){
-    if(get_buffer_writeable_size() >= size){
+/* 获取有内容的空间大小 */
+int rw_buffer::get_buffer_content_size()
+{
+    return this->writeIndex - this->readIndex;
+}
+
+void rw_buffer::make_room(int size)
+{
+    if (get_buffer_writeable_size() >= size)
+    {
         return;
     }
-        if (get_buffer_front_spare_size() + get_buffer_writeable_size() >= size) {
+    if (get_buffer_front_spare_size() + get_buffer_writeable_size() >= size)
+    {
         int readable = get_buffer_readable_size();
         int i;
-        for (i = 0; i < readable; i++) {
+        for (i = 0; i < readable; i++)
+        {
             memcpy(this->data + i, this->data + this->readIndex + i, 1);
         }
         this->readIndex = 0;
         this->writeIndex = readable;
-    } else {
+    }
+    else
+    {
         //扩大缓冲区
         void *tmp = realloc(this->data, this->total_size + size);
-        if (tmp == NULL) {
+        if (tmp == NULL)
+        {
             return;
         }
         this->data = (char *)tmp;
@@ -51,23 +84,28 @@ void rw_buffer::make_room(int size){
     }
 }
 
-int rw_buffer::buffer_append(void *dt, int size){
-    if(dt != NULL){
+int rw_buffer::buffer_append(void *dt, int size)
+{
+    if (dt != NULL)
+    {
         make_room(size);
         memcpy(this->data + this->writeIndex, dt, size);
         this->writeIndex += size;
     }
 }
 
-int rw_buffer::buffer_append_char(char ch){
+int rw_buffer::buffer_append_char(char ch)
+{
     make_room(1);
     this->data[this->writeIndex++] = ch;
 }
 
-int rw_buffer::buffer_append_string(char *str){
-    if(str != NULL){
+int rw_buffer::buffer_append_string(char *str)
+{
+    if (str != NULL)
+    {
         int size = strlen(str);
-        buffer_append(str,size);
+        buffer_append(str, size);
     }
 }
 
@@ -75,7 +113,8 @@ int rw_buffer::buffer_append_string(char *str){
  * 考虑到了原本缓冲区可能不足的情况
  * 使用了iovec结构体和readv函数
  */
-int rw_buffer::buffer_socket_read(int fd){
+int rw_buffer::buffer_socket_read(int fd)
+{
     char additional_buffer[INIT_BUFFER_SIZE];
     struct iovec vec[2];
     int max_writable = get_buffer_writeable_size();
@@ -83,19 +122,31 @@ int rw_buffer::buffer_socket_read(int fd){
     vec[0].iov_len = max_writable;
     vec[1].iov_base = additional_buffer;
     vec[1].iov_len = sizeof(additional_buffer);
-    int res = readv(fd,vec,2);
-    if(res < 0){
+    int res = readv(fd, vec, 2);
+    if (res < 0)
+    {
         return -1;
-    }else if(res <= max_writable){
+    }
+    else if (res <= max_writable)
+    {
         this->writeIndex += res;
-    }else{
+    }
+    else
+    {
         this->writeIndex = this->total_size;
-        buffer_append(additional_buffer,res-max_writable);
+        buffer_append(additional_buffer, res - max_writable);
     }
     return res;
 }
 
-char rw_buffer::buffer_read_char(){
+int rw_buffer::buffer_socket_send(int fd)
+{
+    int res = send(fd, data + readIndex, writeIndex - readIndex, 0);
+    return res;
+}
+
+char rw_buffer::buffer_read_char()
+{
     char ch = this->data[this->readIndex];
     this->readIndex++;
     return ch;

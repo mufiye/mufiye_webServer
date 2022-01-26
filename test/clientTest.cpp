@@ -40,6 +40,8 @@ void *doClient(void *data)
     //如果服务器端是非阻塞IO，这里会返回EINPROGRESS错误
     while (1)
     {
+        // int ret = connect(clientFd, (sockaddr *)&serverAddr, servAddrSize);
+        // printf("the ret is %d\n",ret);
         if (connect(clientFd, (sockaddr *)&serverAddr, servAddrSize) < 0 && errno == EINPROGRESS)
         {
             printf("encounter EINPROGRESS, but it's all right\n");
@@ -52,16 +54,16 @@ void *doClient(void *data)
         *写操作验证模块   
         */
 
-        // memset(&buf, 0, sizeof(buf));
-        // sprintf(buf, "hello,server,my tid is %ld", pthread_self());
-        // if ((byteNum = send(clientFd, buf, strlen(buf), 0)) <= 0)
-        // {
-        //     perror("some wrong when send()");
-        // }
-        // else
-        // {
-        //     printf("My pthread id is: %ld, and I send successfully.\n", pthread_self());
-        // }
+        memset(&buf, 0, sizeof(buf));
+        sprintf(buf, "hello,server,my tid is %ld", pthread_self());
+        if ((byteNum = send(clientFd, buf, strlen(buf), 0)) <= 0)
+        {
+            perror("some wrong when send()");
+        }
+        else
+        {
+            printf("My pthread id is: %ld, and I send successfully.\n", pthread_self());
+        }
         
         /*
         *读操作验证模块

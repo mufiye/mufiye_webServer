@@ -7,7 +7,7 @@
 #ifndef LOCKER_H
 #define LOCKER_H
 
-#include "common.h"
+#include "../common/common.h"
 
 /**
  * 对三个线程同步机制封装类
@@ -24,8 +24,8 @@ private:
 public:
     locker();
     ~locker();
-    bool locker::lock();
-    bool locker::unlock();
+    bool lock();
+    bool unlock();
     pthread_mutex_t *get();
 };
 

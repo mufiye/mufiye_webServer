@@ -81,16 +81,19 @@ bool cond::wait(pthread_mutex_t *m_mutex)
     return ret == 0;
 }
 
-bool cond::timewait(pthread_mutex_t *m_mutex, struct timespec t){
+bool cond::timewait(pthread_mutex_t *m_mutex, struct timespec t)
+{
     int ret = 0;
-    ret = pthread_cond_timedwait(&m_cond,m_mutex,&t);
+    ret = pthread_cond_timedwait(&m_cond, m_mutex, &t);
     return ret == 0;
 }
 
-bool cond::signal(){
+bool cond::signal()
+{
     return pthread_cond_signal(&m_cond) == 0;
 }
 
-bool cond::broadcast(){
+bool cond::broadcast()
+{
     return pthread_cond_broadcast(&m_cond) == 0;
 }

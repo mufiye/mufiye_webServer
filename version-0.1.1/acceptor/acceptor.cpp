@@ -34,9 +34,13 @@ acceptor::~acceptor()
 
 int acceptor::getConnFd(){
     //客户端地址信息如何处理？
-    socklen_t clientLen;
     sockaddr_in clientAddr;
+    socklen_t clientLen = sizeof(clientAddr);
     int connFd = accept(this->listenFd,(sockaddr*)&clientAddr,&clientLen);
+    if(connFd < 0){
+        perror("some wrong with accept()");
+    }
+    printf("the connFd is %d\n",connFd);
     return connFd;
 }
 
