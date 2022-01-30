@@ -43,7 +43,12 @@ private:
     std::string query_string;   //请求报文中的请求字符串
     std::string request_host;   //请求报文中的主机信息
     std::string request_content; //请求报文的主体部分
+    std::string m_file_name;
+    struct stat m_file_stat;
+    int m_html_fd;
+
     char current_line[1500];
+    
     bool if_linger;
     bool if_cgi; //是否要运行cgi程序
 
@@ -70,7 +75,9 @@ private:
 public:
     http_connection(/* args */);
     ~http_connection();
+    void reset();
     void process();
+    bool isLinger();
 };
 
 #endif

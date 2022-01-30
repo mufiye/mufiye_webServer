@@ -17,6 +17,12 @@ rw_buffer::~rw_buffer()
     free(this->data);
 }
 
+/* 缓冲区重置 */
+void rw_buffer::reset(){
+    memset(this->data,0,sizeof this->data);
+    this->writeIndex = this->readIndex = 0;
+}
+
 /* 为了读取数据，应该有封装性更好的方法 */
 char *rw_buffer::get_buffer_data()
 {
@@ -168,6 +174,9 @@ int rw_buffer::buffer_socket_send(int fd)
     fflush(stdout);
 #endif
     int res = send(fd, data + readIndex, writeIndex - readIndex, 0);
+    // /* 做清空缓冲区的处理 */
+    // memset(this->data,0,sizeof this->data);
+    // writeIndex = readIndex = 0;
     return res;
 }
 

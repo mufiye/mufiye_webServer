@@ -46,6 +46,8 @@ public:
     static void set_epollFd(int);
 
     virtual void process() = 0;
+    virtual bool isLinger() = 0;
+    virtual void reset() = 0;
 };
 
 #endif

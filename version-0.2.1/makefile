@@ -24,13 +24,13 @@ rw_buffer.o : $(rw_buffer_cpp) $(rw_buffer_h) $(common_h)
 	g++ -g -c $(rw_buffer_cpp)
 common.o : $(common_h) $(common_cpp)
 	g++ -g -c $(common_cpp)
-http_connection.o : $(http_connection_cpp) $(http_connection_h) $(tcp_connection_h) $(rw_buffer_h)
+http_connection.o : $(http_connection_cpp) $(http_connection_h) $(tcp_connection_h) $(rw_buffer_h) $(common_h)
 	g++ -g -c $(http_connection_cpp)
-tcp_connection.o : $(tcp_connection_cpp) $(tcp_connection_h) $(rw_buffer_h)
+tcp_connection.o : $(tcp_connection_cpp) $(tcp_connection_h) $(rw_buffer_h) $(common_h)
 	g++ -g -c $(tcp_connection_cpp)
 locker.o : $(locker_cpp) $(locker_h) $(common_h)
 	g++ -g -pthread -c $(locker_cpp)
-main.o : main.cpp $(acceptor_h) $(rw_buffer_h) $(thread_pool_h) $(http_connection_h)
+main.o : main.cpp $(acceptor_h) $(rw_buffer_h) $(thread_pool_h) $(http_connection_h) $(tcp_connection_h) $(common_h)
 	g++ -g -pthread -c main.cpp
 clean :
 	rm *.o server

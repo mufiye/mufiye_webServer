@@ -5,6 +5,10 @@ std::map<int, tcp_connection *> tcp_connection::mp;
 
 tcp_connection::tcp_connection(/* args */)
 {
+#ifdef DEBUG2
+    printf("the tcp conection is built\n");
+    fflush(stdout);
+#endif
     this->input_buffer = new rw_buffer();
     this->output_buffer = new rw_buffer();
 }

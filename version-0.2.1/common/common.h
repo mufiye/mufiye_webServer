@@ -23,6 +23,7 @@
 #include <sys/wait.h>
 #include <sys/uio.h>
 #include <sys/epoll.h>
+#include <sys/stat.h>
 #include <netinet/in.h>
 #include <fcntl.h>
 #include <pthread.h>
@@ -38,6 +39,15 @@
 // #ifndef DEBUG
 // #define DEBUG
 // #endif
+
+// #ifndef DEBUG2
+// #define DEBUG2
+// #endif
+
+#ifndef DEBUG3
+#define DEBUG3
+#endif
+
 
 //对文件描述符设置非阻塞
 int setnonblocking(int fd);

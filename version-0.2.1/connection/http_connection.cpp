@@ -12,6 +12,11 @@ const char *error_404_form = "The requested file was not found on this server.\n
 const char *error_500_title = "Internal Error";
 const char *error_500_form = "There was an unusual problem serving the request file.\n";
 
+/* 用于cgi程序 */
+const int STDIN = 0;
+const int STDOUT = 1;
+const int STDERR = 2;
+
 /* 初始化 */
 http_connection::http_connection(/* args */) : tcp_connection()
 {
@@ -26,6 +31,35 @@ http_connection::~http_connection()
 {
 }
 
+//连接状态的重置
+void http_connection::reset()
+{
+#ifdef DEBUG2
+    printf("into http connection's reset function\n");
+#endif
+
+    check_state = CHECK_STATE_REQUESTLINE;
+    request_method = GET;
+    request_content_length = 0;
+
+    request_version = ""; //请求报文的请求行中的版本信息
+    request_url = "";     //请求报文的请求行中的url
+    query_string = "";    //请求报文中的请求字符串
+    request_host = "";    //请求报文中的主机信息
+    request_content = ""; //请求报文的主体部分
+    m_file_name = "";
+    //struct stat m_file_stat;
+    m_html_fd = -1;
+
+    memset(current_line, 0, sizeof current_line);
+
+    if_linger = false;
+    if_cgi = false;
+
+    //缓冲区重置
+    this->input_buffer->reset();
+    this->output_buffer->reset();
+}
 /**
  * 处理请求报文
  */
@@ -42,8 +76,10 @@ http_connection::HTTP_CODE http_connection::process_read()
     while ((check_state == CHECK_STATE_CONTENT && line_status == LINE_OK) || ((line_status = parse_line()) == LINE_OK))
     {
         this->get_line();
+#ifdef DEBUG2
         printf("the new line is: %s\n", this->current_line);
         fflush(stdout);
+#endif
         switch (check_state)
         {
         case CHECK_STATE_REQUESTLINE:
@@ -102,8 +138,10 @@ http_connection::LINE_STATUS http_connection::parse_line()
     fflush(stdout);
 #endif
     int ret = this->input_buffer->buffer_check_line();
-    printf("the parse_line()'s ret is: %d\n",ret);
+#ifdef DEBUG
+    printf("the parse_line()'s ret is: %d\n", ret);
     fflush(stdout);
+#endif
     switch (ret)
     {
     case 0:
@@ -138,8 +176,10 @@ http_connection::HTTP_CODE http_connection::parse_request_line(char *text)
     *temp_request_url++ = '\0'; //将"制表符\t"替换为"结束符\0"
 
     char *method = text;
-    printf("the method is: %s\n",method);
+#ifdef DEBUG
+    printf("the method is: %s\n", method);
     fflush(stdout);
+#endif
     if (strcasecmp(method, "GET") == 0)
         request_method = GET;
     else if (strcasecmp(method, "POST") == 0)
@@ -186,13 +226,11 @@ http_connection::HTTP_CODE http_connection::parse_request_line(char *text)
         return BAD_REQUEST;
 
     request_version = temp_request_version;
-
-    //默认为根目录，index.html
+    //当url为/时，默认为index.html
     if (strlen(temp_request_url) == 1)
         strcat(temp_request_url, "index.html");
-
-    check_state = CHECK_STATE_HEADER;
     request_url = temp_request_url;
+    check_state = CHECK_STATE_HEADER;
     return NO_REQUEST;
 }
 
@@ -205,8 +243,10 @@ http_connection::HTTP_CODE http_connection::parse_headers(char *text)
 #endif
     if (text[0] == '\0')
     {
+#ifdef DEBUG
         printf("into here: text[0] == null\n");
         fflush(stdout);
+#endif
         if (request_content_length != 0)
         {
             check_state = CHECK_STATE_CONTENT;
@@ -250,7 +290,6 @@ http_connection::HTTP_CODE http_connection::parse_content(char *text)
     printf("pthread: %ld, into to function parse_content()\n", pthread_self());
     fflush(stdout);
 #endif
-    printf("pthread: %ld, into to function parse_content()\n", pthread_self());
     //POST请求的内容在主体数据中
 }
 
@@ -264,16 +303,52 @@ http_connection::HTTP_CODE http_connection::do_request()
     if (request_method == GET)
     {
         //解析url分析是否有request string，如果有也要运行cgi程序
+#ifdef DEBUG2
         printf("the http url is %s\n", this->request_url.c_str());
         printf("the http version is %s\n", this->request_version.c_str());
-        printf("the request content length is: %d\n",this->request_content_length);
-        printf("the linger information is: %s\n",this->if_linger?"keep-alive":"close");
+        printf("the request content length is: %d\n", this->request_content_length);
+        printf("the linger information is: %s\n", this->if_linger ? "keep-alive" : "close");
         fflush(stdout);
-        return FILE_REQUEST;
+#endif
+        if (request_url.find("?") == std::string::npos)
+        { /* 未找到"?",直接请求一个文件 */
+#ifdef DEBUG
+            printf("have not find '?'\n");
+            fflush(stdout);
+#endif
+            this->m_file_name = "./httpdocs" + this->request_url;
+            this->m_html_fd = open(this->m_file_name.c_str(), O_RDONLY);
+            // stat(this->m_file_name.c_str(), &this->m_file_stat);
+            if (stat(this->m_file_name.c_str(), &this->m_file_stat) < 0)
+            {
+                if (ENOENT == errno)
+                {
+                    printf("the file dose not exist\n");
+                    fflush(stdout);
+                }
+                else if (ENOTDIR == errno)
+                {
+                    printf("the file exists but not a real dir\n");
+                    fflush(stdout);
+                }
+            }
+            return FILE_REQUEST;
+        }
+        else
+        { /* 找到了"?" */
+#ifdef DEBUG2
+            printf("find the '?'\n");
+            fflush(stdout);
+#endif
+            if_cgi = true;
+            /* 处理?之后的字符 */
+            return CGI_REQUEST;
+        }
     }
     else if (request_method == POST)
     {
         //运行cgi程序，POST的数据在content中
+        return CGI_REQUEST;
     }
 }
 
@@ -316,17 +391,71 @@ bool http_connection::process_write(HTTP_CODE retcode)
     {
         append_status_line(200, ok_200_title);
         /* 如何将静态html文件发送给客户端？ */
-
-        /* 尝试直接放在字符串常量中发送 */
-        const char *ok_string = "<html><head><title>mufiye_server</title></head><body><h1>Hello,this is mufiye server</h1></body></html>";
-        append_headers(strlen(ok_string));
-        if (!append_content(ok_string))
-            return false;
+        if (this->m_file_stat.st_size != 0)
+        {
+#ifdef DEBUG2
+            printf("into send html file\n");
+            fflush(stdout);
+#endif
+            append_headers(m_file_stat.st_size);
+            this->output_buffer->buffer_socket_read(this->m_html_fd);
+        }
+        else
+        {
+            printf("into ok string\n");
+            fflush(stdout);
+            const char *ok_string = "<html><head><title>mufiye_server</title></head><body><h1>Hello,this is mufiye server</h1></body></html>";
+            append_headers(strlen(ok_string));
+            if (!append_content(ok_string))
+                return false;
+        }
         break;
     }
     case CGI_REQUEST:
     {
+#ifdef DEBUG2
+        printf("into switch case CGI_REQUEST\n");
+#endif
         append_status_line(200, ok_200_title);
+        /* 用于父进程wait与子进程exit */
+        int status;
+        /* 两个管道 */
+        int cgi_input[2];
+        int cgi_output[2];
+        pipe(cgi_input);
+        pipe(cgi_output);
+
+        /* 创建子进程 */
+        pid_t pid = fork();
+        if (pid > 0)
+        { //父进程
+            close(cgi_output[1]);
+            close(cgi_input[0]);
+
+            /* 将程序结果写入缓冲区中 */
+            this->output_buffer->buffer_socket_read(cgi_output[0]);
+
+            close(cgi_output[0]);
+            close(cgi_input[1]);
+            waitpid(pid, &status, 0); //等待子进程结束
+        }
+        else if (0 == pid)
+        {
+            dup2(cgi_output[1], STDOUT);
+            dup2(cgi_input[0], STDIN);
+            close(cgi_output[0]);
+            close(cgi_input[1]);
+
+            /* run the program */
+            /* 如果exec那么管道就不用关闭了 */
+            execl("./cgi_scripts/demo.cgi", NULL);
+            exit(0); //子进程退出
+        }
+        else
+        {
+            perror("some wrong when fork");
+            return false;
+        }
         break;
     }
     default:
@@ -411,7 +540,7 @@ bool http_connection::append_headers(int content_length)
 /* 待优化 */
 bool http_connection::append_content(const char *content)
 {
-#ifdef DEBUG
+#ifdef DEBUG3
     printf("pthread: %ld, into to function append_content()\n", pthread_self());
     fflush(stdout);
 #endif
@@ -452,4 +581,9 @@ void http_connection::process()
         printf("process_write() return false, something wrong\n");
     }
     modfd(m_epollFd, connFd, EPOLLOUT);
+}
+
+bool http_connection::isLinger()
+{
+    return this->if_linger;
 }

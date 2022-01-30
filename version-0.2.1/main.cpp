@@ -23,10 +23,10 @@ extern void removefd(int, int);
 int main(int argc, char *argv[])
 {
 #ifdef DEBUG
-    printf("pthread: %ld, into to function main()\n",pthread_self());
+    printf("pthread: %ld, into to function main()\n", pthread_self());
     fflush(stdout);
 #endif
-    int port; //监听的端口号
+    int port;     //监听的端口号
     int listenFd; //监听套接字
     int epollFd;
     epoll_event events[MAX_EVENT_NUMBER];
@@ -46,17 +46,21 @@ int main(int argc, char *argv[])
     epollFd = epoll_create1(0);
     assert(epollFd != -1);
     tcp_connection::set_epollFd(epollFd);
-    addfd(epollFd,listenFd,false);
+    addfd(epollFd, listenFd, false);
 
-    while(!server_stop){
-        int number = epoll_wait(epollFd,events,MAX_EVENT_NUMBER,-1);
-        if(number < 0){
+    while (!server_stop)
+    {
+        int number = epoll_wait(epollFd, events, MAX_EVENT_NUMBER, -1);
+        if (number < 0)
+        {
             break;
         }
         //printf("the number is %d\n",number);
-        for(int i=0; i<number; i++){
+        for (int i = 0; i < number; i++)
+        {
             int sockFd = events[i].data.fd;
-            if(sockFd == listenFd){
+            if (sockFd == listenFd)
+            {
                 /* 做accept操作 */
                 int connFd = ap.getConnFd();
                 //printf("the connFd is %d\n",connFd);
@@ -64,35 +68,48 @@ int main(int argc, char *argv[])
                 assert(connFd >= 0);
                 tcp_connection *http_conn = new http_connection();
                 http_conn->setConnFd(connFd);
-                tcp_connection::insert_tcp_conn(connFd,http_conn);
-                addfd(epollFd,connFd,true);
+                tcp_connection::insert_tcp_conn(connFd, http_conn);
+                addfd(epollFd, connFd, true);
                 continue;
                 //process()如何书写
                 //读写描述符和事件何时加入epoll Fd
-            }else if(events[i].events & EPOLLIN){
+            }
+            else if (events[i].events & EPOLLIN)
+            {
                 int connFd = events[i].data.fd;
-                tcp_connection* tcp_conn = tcp_connection::get_tcp_conn(connFd); 
+                tcp_connection *tcp_conn = tcp_connection::get_tcp_conn(connFd);
                 /* 读取数据 */
-                if(tcp_conn->read_data()){
+                if (tcp_conn->read_data())
+                {
                     pool->append(tcp_conn);
                 }
                 continue;
-            }else if(events[i].events & EPOLLOUT){
+            }
+            else if (events[i].events & EPOLLOUT)
+            {
                 int connFd = events[i].data.fd;
-                tcp_connection* tcp_conn = tcp_connection::get_tcp_conn(connFd); 
+                tcp_connection *tcp_conn = tcp_connection::get_tcp_conn(connFd);
                 /* 发送数据 */
-                if(tcp_conn->send_data()){
+                if (tcp_conn->send_data())
+                {
                     printf("I have send data\n");
-                    // /**
-                    //  * 如果每次发送后都关闭连接
-                    //  * 1.取消监听
-                    //  * 2.将连接从map中移除
-                    //  * 3.关闭连接
-                    //  * 4.清除读写缓冲区 
-                    //  */
-                    // delete tcp_conn;
-                    // tcp_conn = nullptr;
-                    modfd(epollFd, tcp_conn->getConnFd(), EPOLLIN);
+                    if (tcp_conn->isLinger())
+                    {/*connection: keep-alive*/
+                        tcp_conn->reset();
+                        modfd(epollFd, tcp_conn->getConnFd(), EPOLLIN);
+                    }
+                    else
+                    {/* connection: closed */
+                        /**
+                         * 如果每次发送后都关闭连接
+                         * 1.取消监听
+                         * 2.将连接从map中移除
+                         * 3.关闭连接
+                         * 4.清除读写缓冲区
+                         */
+                        delete tcp_conn;
+                        tcp_conn = nullptr;
+                    }
                 }
             }
         }

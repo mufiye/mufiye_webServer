@@ -22,6 +22,7 @@ private:
 public:
     rw_buffer(/* args */);
     ~rw_buffer();
+    void reset();
     char* get_buffer_data();
     int get_buffer_read_index();
     int get_buffer_write_index();
