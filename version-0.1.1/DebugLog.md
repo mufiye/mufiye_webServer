@@ -15,3 +15,5 @@
 accept函数出现“Invalid Argument”错误。
 #### 解决方案
 getConnFd()中的clientLen定义为sizeof(clientAddr)，clientLen是accept函数的第3个参数。
+
+# over
