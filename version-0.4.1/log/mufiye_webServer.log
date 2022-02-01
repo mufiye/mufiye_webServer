@@ -1,0 +1,1711 @@
+
+
+The log of 2022-02-01:
+2022-02-01 19:37:59.051753 [info]: pthread: 140318274320192, into to function main()
+
+2022-02-01 19:37:59.051922 [info]: into main while loop
+
+2022-02-01 19:38:00.962474 [info]: into get epoll for-loop
+
+2022-02-01 19:38:00.962521 [info]: the connFd is 8
+
+2022-02-01 19:38:00.962528 [info]: the tcp conection is built
+
+2022-02-01 19:38:00.962566 [info]: into main while loop
+
+2022-02-01 19:38:00.962935 [info]: into get epoll for-loop
+
+2022-02-01 19:38:00.962960 [info]: into EPOLLIN
+
+2022-02-01 19:38:00.962968 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:00.963023 [info]: has read data
+
+2022-02-01 19:38:00.963028 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:00.963037 [info]: has adjust timer
+2022-02-01 19:38:00.963041 [info]: into main while loop
+
+2022-02-01 19:38:00.963075 [info]: pthread: 140318240745216, into to function process()
+
+2022-02-01 19:38:00.963080 [info]: pthread: 140318240745216, into to function http_connection::process_read()
+
+2022-02-01 19:38:00.963084 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963088 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963091 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963095 [info]: the new line is: GET /show_picture.html HTTP/1.1
+
+2022-02-01 19:38:00.963099 [info]: pthread: 140318240745216, into to function parse_request_line()
+
+2022-02-01 19:38:00.963103 [info]: the method is: GET
+
+2022-02-01 19:38:00.963111 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963115 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963119 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963123 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:00.963126 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963130 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963134 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963137 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963140 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:00.963144 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963148 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963151 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963155 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963158 [info]: the new line is: Upgrade-Insecure-Requests: 1
+
+2022-02-01 19:38:00.963162 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963165 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963169 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963173 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963177 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:00.963181 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963184 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963188 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963191 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963196 [info]: the new line is: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+2022-02-01 19:38:00.963199 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963203 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963206 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963210 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963214 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:00.963217 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963220 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963224 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963228 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963244 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:00.963248 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963252 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:00.963256 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:00.963260 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:00.963264 [info]: the new line is: 
+
+2022-02-01 19:38:00.963267 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:00.963271 [info]: into here: text[0] == null
+
+2022-02-01 19:38:00.963275 [info]: pthread: 140318240745216, into to function do_request()
+
+2022-02-01 19:38:00.963279 [info]: the http url is /show_picture.html
+
+2022-02-01 19:38:00.963283 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:00.963287 [info]: the request content length is: 0
+
+2022-02-01 19:38:00.963291 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:00.963299 [info]: have not find '?'
+
+2022-02-01 19:38:00.963311 [info]: pthread: 140318240745216, into to function process_write()
+
+2022-02-01 19:38:00.963314 [info]: pthread: 140318240745216, into to function append_status_line()
+
+2022-02-01 19:38:00.963317 [info]: into send html file
+
+2022-02-01 19:38:00.963326 [info]: pthread: 140318240745216, into to function append_headers()
+
+2022-02-01 19:38:00.963329 [info]: pthread: 140318240745216, into to function append_content_length()
+
+2022-02-01 19:38:00.963332 [info]: pthread: 140318240745216, into to function append_linger()
+
+2022-02-01 19:38:00.963334 [info]: pthread: 140318240745216, into to function append_blank_line()
+
+2022-02-01 19:38:00.963790 [info]: into get epoll for-loop
+
+2022-02-01 19:38:00.963805 [info]: into EPOLLOUT
+
+2022-02-01 19:38:00.963834 [info]: I have send data
+
+2022-02-01 19:38:00.963838 [info]: into http connection's reset function
+
+2022-02-01 19:38:00.963846 [info]: has adjust timer
+2022-02-01 19:38:00.963849 [info]: into main while loop
+
+2022-02-01 19:38:00.964419 [info]: into get epoll for-loop
+
+2022-02-01 19:38:00.964436 [info]: the connFd is 10
+
+2022-02-01 19:38:00.964444 [info]: the tcp conection is built
+
+2022-02-01 19:38:00.964463 [info]: into main while loop
+
+2022-02-01 19:38:01.013954 [info]: into get epoll for-loop
+
+2022-02-01 19:38:01.013984 [info]: into EPOLLIN
+
+2022-02-01 19:38:01.013991 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:01.014001 [info]: has read data
+
+2022-02-01 19:38:01.014004 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:01.014011 [info]: has adjust timer
+2022-02-01 19:38:01.014015 [info]: into main while loop
+
+2022-02-01 19:38:01.014048 [info]: pthread: 140318249137920, into to function process()
+
+2022-02-01 19:38:01.014054 [info]: pthread: 140318249137920, into to function http_connection::process_read()
+
+2022-02-01 19:38:01.014059 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014062 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014064 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014067 [info]: the new line is: GET /happy.jpg HTTP/1.1
+
+2022-02-01 19:38:01.014070 [info]: pthread: 140318249137920, into to function parse_request_line()
+
+2022-02-01 19:38:01.014073 [info]: the method is: GET
+
+2022-02-01 19:38:01.014079 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014082 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014084 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014087 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:01.014089 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014092 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014095 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014097 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014100 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:01.014102 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014105 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014108 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014110 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014113 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:01.014116 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014118 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014121 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014123 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014126 [info]: the new line is: Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+
+2022-02-01 19:38:01.014128 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014131 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014133 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014136 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014138 [info]: the new line is: Referer: http://1.15.32.184:8080/show_picture.html
+
+2022-02-01 19:38:01.014141 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014143 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014146 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014148 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014151 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:01.014153 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014155 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014158 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014160 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014163 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:01.014165 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014170 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:01.014172 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.014175 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:01.014177 [info]: the new line is: 
+
+2022-02-01 19:38:01.014180 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:01.014182 [info]: into here: text[0] == null
+
+2022-02-01 19:38:01.014184 [info]: pthread: 140318249137920, into to function do_request()
+
+2022-02-01 19:38:01.014187 [info]: the http url is /happy.jpg
+
+2022-02-01 19:38:01.014189 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:01.014192 [info]: the request content length is: 0
+
+2022-02-01 19:38:01.014194 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:01.014197 [info]: have not find '?'
+
+2022-02-01 19:38:01.014208 [info]: pthread: 140318249137920, into to function process_write()
+
+2022-02-01 19:38:01.014210 [info]: pthread: 140318249137920, into to function append_status_line()
+
+2022-02-01 19:38:01.014213 [info]: into send html file
+
+2022-02-01 19:38:01.014216 [info]: pthread: 140318249137920, into to function append_headers()
+
+2022-02-01 19:38:01.014219 [info]: pthread: 140318249137920, into to function append_content_length()
+
+2022-02-01 19:38:01.014221 [info]: pthread: 140318249137920, into to function append_linger()
+
+2022-02-01 19:38:01.014224 [info]: pthread: 140318249137920, into to function append_blank_line()
+
+2022-02-01 19:38:01.014308 [info]: into get epoll for-loop
+
+2022-02-01 19:38:01.014311 [info]: into EPOLLOUT
+
+2022-02-01 19:38:01.014358 [info]: I have send data
+
+2022-02-01 19:38:01.014361 [info]: into http connection's reset function
+
+2022-02-01 19:38:01.014374 [info]: has adjust timer
+2022-02-01 19:38:01.014377 [info]: into main while loop
+
+2022-02-01 19:38:01.067760 [info]: into get epoll for-loop
+
+2022-02-01 19:38:01.067787 [info]: into EPOLLIN
+
+2022-02-01 19:38:01.067793 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:01.067808 [info]: has read data
+
+2022-02-01 19:38:01.067810 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:01.067820 [info]: has adjust timer
+2022-02-01 19:38:01.067823 [info]: into main while loop
+
+2022-02-01 19:38:01.067856 [info]: pthread: 140318257530624, into to function process()
+
+2022-02-01 19:38:01.067860 [info]: pthread: 140318257530624, into to function http_connection::process_read()
+
+2022-02-01 19:38:01.067863 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067866 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067868 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067871 [info]: the new line is: GET /favicon.ico HTTP/1.1
+
+2022-02-01 19:38:01.067874 [info]: pthread: 140318257530624, into to function parse_request_line()
+
+2022-02-01 19:38:01.067877 [info]: the method is: GET
+
+2022-02-01 19:38:01.067883 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067886 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067888 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067891 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:01.067893 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067896 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067899 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067901 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067905 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:01.067909 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067912 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067917 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067921 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067925 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:01.067928 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067931 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067933 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067936 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067939 [info]: the new line is: Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+
+2022-02-01 19:38:01.067941 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067944 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067946 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067949 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067951 [info]: the new line is: Referer: http://1.15.32.184:8080/show_picture.html
+
+2022-02-01 19:38:01.067954 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067956 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067959 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067961 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067964 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:01.067966 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067968 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067971 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067973 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067976 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:01.067978 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067983 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:01.067985 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:01.067988 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:01.067990 [info]: the new line is: 
+
+2022-02-01 19:38:01.067993 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:01.067995 [info]: into here: text[0] == null
+
+2022-02-01 19:38:01.067997 [info]: pthread: 140318257530624, into to function do_request()
+
+2022-02-01 19:38:01.068000 [info]: the http url is /favicon.ico
+
+2022-02-01 19:38:01.068003 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:01.068005 [info]: the request content length is: 0
+
+2022-02-01 19:38:01.068007 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:01.068010 [info]: have not find '?'
+
+2022-02-01 19:38:01.068020 [warning]: the file dose not exist
+
+2022-02-01 19:38:01.068022 [info]: pthread: 140318257530624, into to function process_write()
+
+2022-02-01 19:38:01.068025 [info]: pthread: 140318257530624, into to function append_status_line()
+
+2022-02-01 19:38:01.068028 [info]: into send html file
+
+2022-02-01 19:38:01.068031 [info]: pthread: 140318257530624, into to function append_headers()
+
+2022-02-01 19:38:01.068033 [info]: pthread: 140318257530624, into to function append_content_length()
+
+2022-02-01 19:38:01.068036 [info]: pthread: 140318257530624, into to function append_linger()
+
+2022-02-01 19:38:01.068039 [info]: pthread: 140318257530624, into to function append_blank_line()
+
+2022-02-01 19:38:01.068091 [info]: into get epoll for-loop
+
+2022-02-01 19:38:01.068094 [info]: into EPOLLOUT
+
+2022-02-01 19:38:01.068107 [info]: I have send data
+
+2022-02-01 19:38:01.068110 [info]: into http connection's reset function
+
+2022-02-01 19:38:01.068117 [info]: has adjust timer
+2022-02-01 19:38:01.068119 [info]: into main while loop
+
+2022-02-01 19:38:04.051957 [info]: into sig_handler()
+
+2022-02-01 19:38:04.051999 [info]: interrupted by signo
+
+2022-02-01 19:38:04.052003 [info]: into main while loop
+
+2022-02-01 19:38:04.052007 [info]: into get epoll for-loop
+
+2022-02-01 19:38:04.052010 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:04.052016 [info]: into SIGALRM case
+
+2022-02-01 19:38:04.052019 [info]: timer tick
+
+2022-02-01 19:38:04.052024 [info]: into main while loop
+
+2022-02-01 19:38:07.700989 [info]: into get epoll for-loop
+
+2022-02-01 19:38:07.701023 [info]: into EPOLLIN
+
+2022-02-01 19:38:07.701031 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:07.701054 [info]: has read data
+
+2022-02-01 19:38:07.701058 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:07.701066 [info]: has adjust timer
+2022-02-01 19:38:07.701070 [info]: into main while loop
+
+2022-02-01 19:38:07.701095 [info]: pthread: 140318265923328, into to function process()
+
+2022-02-01 19:38:07.701098 [info]: pthread: 140318265923328, into to function http_connection::process_read()
+
+2022-02-01 19:38:07.701101 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701104 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701106 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701109 [info]: the new line is: GET /mufiye.html HTTP/1.1
+
+2022-02-01 19:38:07.701112 [info]: pthread: 140318265923328, into to function parse_request_line()
+
+2022-02-01 19:38:07.701115 [info]: the method is: GET
+
+2022-02-01 19:38:07.701120 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701123 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701125 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701128 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:07.701130 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701133 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701136 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701138 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701141 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:07.701143 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701146 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701148 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701150 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701153 [info]: the new line is: Upgrade-Insecure-Requests: 1
+
+2022-02-01 19:38:07.701155 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701158 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701161 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701163 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701166 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:07.701169 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701171 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701174 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701176 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701180 [info]: the new line is: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+2022-02-01 19:38:07.701182 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701184 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701187 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701190 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701194 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:07.701198 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701201 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701205 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701208 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701215 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:07.701219 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701222 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:07.701226 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.701229 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:07.701233 [info]: the new line is: 
+
+2022-02-01 19:38:07.701237 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:07.701241 [info]: into here: text[0] == null
+
+2022-02-01 19:38:07.701245 [info]: pthread: 140318265923328, into to function do_request()
+
+2022-02-01 19:38:07.701249 [info]: the http url is /mufiye.html
+
+2022-02-01 19:38:07.701253 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:07.701257 [info]: the request content length is: 0
+
+2022-02-01 19:38:07.701260 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:07.701265 [info]: have not find '?'
+
+2022-02-01 19:38:07.701277 [info]: pthread: 140318265923328, into to function process_write()
+
+2022-02-01 19:38:07.701280 [info]: pthread: 140318265923328, into to function append_status_line()
+
+2022-02-01 19:38:07.701283 [info]: into send html file
+
+2022-02-01 19:38:07.701286 [info]: pthread: 140318265923328, into to function append_headers()
+
+2022-02-01 19:38:07.701288 [info]: pthread: 140318265923328, into to function append_content_length()
+
+2022-02-01 19:38:07.701291 [info]: pthread: 140318265923328, into to function append_linger()
+
+2022-02-01 19:38:07.701294 [info]: pthread: 140318265923328, into to function append_blank_line()
+
+2022-02-01 19:38:07.701359 [info]: into get epoll for-loop
+
+2022-02-01 19:38:07.701363 [info]: into EPOLLOUT
+
+2022-02-01 19:38:07.701387 [info]: I have send data
+
+2022-02-01 19:38:07.701390 [info]: into http connection's reset function
+
+2022-02-01 19:38:07.701394 [info]: has adjust timer
+2022-02-01 19:38:07.701401 [info]: into main while loop
+
+2022-02-01 19:38:07.746744 [info]: into get epoll for-loop
+
+2022-02-01 19:38:07.746772 [info]: into EPOLLIN
+
+2022-02-01 19:38:07.746780 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:07.746791 [info]: has read data
+
+2022-02-01 19:38:07.746794 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:07.746800 [info]: has adjust timer
+2022-02-01 19:38:07.746803 [info]: into main while loop
+
+2022-02-01 19:38:07.746811 [info]: pthread: 140318240745216, into to function process()
+
+2022-02-01 19:38:07.746815 [info]: pthread: 140318240745216, into to function http_connection::process_read()
+
+2022-02-01 19:38:07.746818 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746821 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746823 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746826 [info]: the new line is: GET /favicon.ico HTTP/1.1
+
+2022-02-01 19:38:07.746829 [info]: pthread: 140318240745216, into to function parse_request_line()
+
+2022-02-01 19:38:07.746832 [info]: the method is: GET
+
+2022-02-01 19:38:07.746835 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746838 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746849 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746852 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:07.746854 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746857 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746860 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746862 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746865 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:07.746867 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746870 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746881 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746884 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746887 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:07.746890 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746892 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746895 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746897 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746900 [info]: the new line is: Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+
+2022-02-01 19:38:07.746903 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746905 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746908 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746910 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746913 [info]: the new line is: Referer: http://1.15.32.184:8080/mufiye.html
+
+2022-02-01 19:38:07.746915 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746917 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746920 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746922 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746925 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:07.746927 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746930 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746932 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746934 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746937 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:07.746939 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746942 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:07.746944 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:07.746946 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:07.746949 [info]: the new line is: 
+
+2022-02-01 19:38:07.746951 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:07.746954 [info]: into here: text[0] == null
+
+2022-02-01 19:38:07.746956 [info]: pthread: 140318240745216, into to function do_request()
+
+2022-02-01 19:38:07.746959 [info]: the http url is /favicon.ico
+
+2022-02-01 19:38:07.746961 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:07.746964 [info]: the request content length is: 0
+
+2022-02-01 19:38:07.746966 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:07.746969 [info]: have not find '?'
+
+2022-02-01 19:38:07.746980 [warning]: the file dose not exist
+
+2022-02-01 19:38:07.746984 [info]: pthread: 140318240745216, into to function process_write()
+
+2022-02-01 19:38:07.746988 [info]: pthread: 140318240745216, into to function append_status_line()
+
+2022-02-01 19:38:07.746995 [info]: into send html file
+
+2022-02-01 19:38:07.746999 [info]: pthread: 140318240745216, into to function append_headers()
+
+2022-02-01 19:38:07.747003 [info]: pthread: 140318240745216, into to function append_content_length()
+
+2022-02-01 19:38:07.747008 [info]: pthread: 140318240745216, into to function append_linger()
+
+2022-02-01 19:38:07.747012 [info]: pthread: 140318240745216, into to function append_blank_line()
+
+2022-02-01 19:38:07.747025 [info]: into get epoll for-loop
+
+2022-02-01 19:38:07.747029 [info]: into EPOLLOUT
+
+2022-02-01 19:38:07.747048 [info]: I have send data
+
+2022-02-01 19:38:07.747052 [info]: into http connection's reset function
+
+2022-02-01 19:38:07.747060 [info]: has adjust timer
+2022-02-01 19:38:07.747063 [info]: into main while loop
+
+2022-02-01 19:38:09.052051 [info]: into sig_handler()
+
+2022-02-01 19:38:09.052095 [info]: interrupted by signo
+
+2022-02-01 19:38:09.052101 [info]: into main while loop
+
+2022-02-01 19:38:09.052105 [info]: into get epoll for-loop
+
+2022-02-01 19:38:09.052108 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:09.052114 [info]: into SIGALRM case
+
+2022-02-01 19:38:09.052117 [info]: timer tick
+
+2022-02-01 19:38:09.052122 [info]: into main while loop
+
+2022-02-01 19:38:13.261615 [info]: into get epoll for-loop
+
+2022-02-01 19:38:13.261662 [info]: the connFd is 13
+
+2022-02-01 19:38:13.261676 [info]: the tcp conection is built
+
+2022-02-01 19:38:13.261700 [info]: into main while loop
+
+2022-02-01 19:38:13.261705 [info]: into get epoll for-loop
+
+2022-02-01 19:38:13.261707 [info]: into EPOLLIN
+
+2022-02-01 19:38:13.261710 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:13.261719 [info]: has read data
+
+2022-02-01 19:38:13.261722 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:13.261728 [info]: has adjust timer
+2022-02-01 19:38:13.261731 [info]: into main while loop
+
+2022-02-01 19:38:13.261738 [info]: pthread: 140318249137920, into to function process()
+
+2022-02-01 19:38:13.261742 [info]: pthread: 140318249137920, into to function http_connection::process_read()
+
+2022-02-01 19:38:13.261745 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261748 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261750 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261753 [info]: the new line is: GET /index.html HTTP/1.1
+
+2022-02-01 19:38:13.261756 [info]: pthread: 140318249137920, into to function parse_request_line()
+
+2022-02-01 19:38:13.261759 [info]: the method is: GET
+
+2022-02-01 19:38:13.261763 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261765 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261768 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261770 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:13.261773 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261776 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261778 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261781 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261783 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:13.261785 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261788 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261790 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261793 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261798 [info]: the new line is: Upgrade-Insecure-Requests: 1
+
+2022-02-01 19:38:13.261800 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261803 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261806 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261808 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261811 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:13.261814 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261816 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261819 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261821 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261824 [info]: the new line is: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+2022-02-01 19:38:13.261827 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261829 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261832 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261834 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261837 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:13.261839 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261841 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261844 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261846 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261849 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:13.261851 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261853 [info]: pthread: 140318249137920, into to function parse_line()
+
+2022-02-01 19:38:13.261856 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.261858 [info]: pthread: 140318249137920, into to function get_line()
+
+2022-02-01 19:38:13.261861 [info]: the new line is: 
+
+2022-02-01 19:38:13.261863 [info]: pthread: 140318249137920, into to function parse_headers()
+
+2022-02-01 19:38:13.261865 [info]: into here: text[0] == null
+
+2022-02-01 19:38:13.261868 [info]: pthread: 140318249137920, into to function do_request()
+
+2022-02-01 19:38:13.261870 [info]: the http url is /index.html
+
+2022-02-01 19:38:13.261873 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:13.261875 [info]: the request content length is: 0
+
+2022-02-01 19:38:13.261878 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:13.261881 [info]: have not find '?'
+
+2022-02-01 19:38:13.261891 [info]: pthread: 140318249137920, into to function process_write()
+
+2022-02-01 19:38:13.261893 [info]: pthread: 140318249137920, into to function append_status_line()
+
+2022-02-01 19:38:13.261896 [info]: into send html file
+
+2022-02-01 19:38:13.261901 [info]: pthread: 140318249137920, into to function append_headers()
+
+2022-02-01 19:38:13.261904 [info]: pthread: 140318249137920, into to function append_content_length()
+
+2022-02-01 19:38:13.261906 [info]: pthread: 140318249137920, into to function append_linger()
+
+2022-02-01 19:38:13.261909 [info]: pthread: 140318249137920, into to function append_blank_line()
+
+2022-02-01 19:38:13.261920 [info]: into get epoll for-loop
+
+2022-02-01 19:38:13.261922 [info]: into EPOLLOUT
+
+2022-02-01 19:38:13.261938 [info]: I have send data
+
+2022-02-01 19:38:13.261941 [info]: into http connection's reset function
+
+2022-02-01 19:38:13.261947 [info]: has adjust timer
+2022-02-01 19:38:13.261950 [info]: into main while loop
+
+2022-02-01 19:38:13.309489 [info]: into get epoll for-loop
+
+2022-02-01 19:38:13.309522 [info]: into EPOLLIN
+
+2022-02-01 19:38:13.309532 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:13.309546 [info]: has read data
+
+2022-02-01 19:38:13.309551 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:13.309559 [info]: has adjust timer
+2022-02-01 19:38:13.309564 [info]: into main while loop
+
+2022-02-01 19:38:13.309574 [info]: pthread: 140318257530624, into to function process()
+
+2022-02-01 19:38:13.309579 [info]: pthread: 140318257530624, into to function http_connection::process_read()
+
+2022-02-01 19:38:13.309584 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309588 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309590 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309593 [info]: the new line is: GET /favicon.ico HTTP/1.1
+
+2022-02-01 19:38:13.309596 [info]: pthread: 140318257530624, into to function parse_request_line()
+
+2022-02-01 19:38:13.309599 [info]: the method is: GET
+
+2022-02-01 19:38:13.309603 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309605 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309608 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309610 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:13.309613 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309616 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309618 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309620 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309623 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:13.309625 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309628 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309631 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309633 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309644 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:13.309647 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309649 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309652 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309654 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309657 [info]: the new line is: Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+
+2022-02-01 19:38:13.309660 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309662 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309665 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309667 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309669 [info]: the new line is: Referer: http://1.15.32.184:8080/index.html
+
+2022-02-01 19:38:13.309672 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309674 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309677 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309679 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309681 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:13.309684 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309686 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309689 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309691 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309694 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:13.309696 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309698 [info]: pthread: 140318257530624, into to function parse_line()
+
+2022-02-01 19:38:13.309701 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:13.309703 [info]: pthread: 140318257530624, into to function get_line()
+
+2022-02-01 19:38:13.309705 [info]: the new line is: 
+
+2022-02-01 19:38:13.309708 [info]: pthread: 140318257530624, into to function parse_headers()
+
+2022-02-01 19:38:13.309710 [info]: into here: text[0] == null
+
+2022-02-01 19:38:13.309713 [info]: pthread: 140318257530624, into to function do_request()
+
+2022-02-01 19:38:13.309715 [info]: the http url is /favicon.ico
+
+2022-02-01 19:38:13.309718 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:13.309720 [info]: the request content length is: 0
+
+2022-02-01 19:38:13.309723 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:13.309725 [info]: have not find '?'
+
+2022-02-01 19:38:13.309736 [warning]: the file dose not exist
+
+2022-02-01 19:38:13.309738 [info]: pthread: 140318257530624, into to function process_write()
+
+2022-02-01 19:38:13.309741 [info]: pthread: 140318257530624, into to function append_status_line()
+
+2022-02-01 19:38:13.309744 [info]: into send html file
+
+2022-02-01 19:38:13.309747 [info]: pthread: 140318257530624, into to function append_headers()
+
+2022-02-01 19:38:13.309749 [info]: pthread: 140318257530624, into to function append_content_length()
+
+2022-02-01 19:38:13.309754 [info]: pthread: 140318257530624, into to function append_linger()
+
+2022-02-01 19:38:13.309757 [info]: pthread: 140318257530624, into to function append_blank_line()
+
+2022-02-01 19:38:13.309768 [info]: into get epoll for-loop
+
+2022-02-01 19:38:13.309770 [info]: into EPOLLOUT
+
+2022-02-01 19:38:13.309787 [info]: I have send data
+
+2022-02-01 19:38:13.309790 [info]: into http connection's reset function
+
+2022-02-01 19:38:13.309797 [info]: has adjust timer
+2022-02-01 19:38:13.309800 [info]: into main while loop
+
+2022-02-01 19:38:14.052156 [info]: into sig_handler()
+
+2022-02-01 19:38:14.052199 [info]: interrupted by signo
+
+2022-02-01 19:38:14.052204 [info]: into main while loop
+
+2022-02-01 19:38:14.052208 [info]: into get epoll for-loop
+
+2022-02-01 19:38:14.052211 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:14.052217 [info]: into SIGALRM case
+
+2022-02-01 19:38:14.052220 [info]: timer tick
+
+2022-02-01 19:38:14.052225 [info]: into main while loop
+
+2022-02-01 19:38:19.052249 [info]: into sig_handler()
+
+2022-02-01 19:38:19.052296 [info]: interrupted by signo
+
+2022-02-01 19:38:19.052302 [info]: into main while loop
+
+2022-02-01 19:38:19.052307 [info]: into get epoll for-loop
+
+2022-02-01 19:38:19.052309 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:19.052328 [info]: into SIGALRM case
+
+2022-02-01 19:38:19.052331 [info]: timer tick
+
+2022-02-01 19:38:19.052365 [info]: Into tcp_connection::~tcp_connection()
+
+2022-02-01 19:38:19.052379 [info]: close connection, connection fd is 8
+
+2022-02-01 19:38:19.052384 [info]: into main while loop
+
+2022-02-01 19:38:22.734098 [info]: into get epoll for-loop
+
+2022-02-01 19:38:22.734145 [info]: the connFd is 8
+
+2022-02-01 19:38:22.734153 [info]: the tcp conection is built
+
+2022-02-01 19:38:22.734187 [info]: into main while loop
+
+2022-02-01 19:38:22.734572 [info]: into get epoll for-loop
+
+2022-02-01 19:38:22.734586 [info]: into EPOLLIN
+
+2022-02-01 19:38:22.734591 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:22.734600 [info]: has read data
+
+2022-02-01 19:38:22.734603 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:22.734613 [info]: pthread: 140318265923328, into to function process()
+
+2022-02-01 19:38:22.734618 [info]: pthread: 140318265923328, into to function http_connection::process_read()
+
+2022-02-01 19:38:22.734623 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734627 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734632 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734636 [info]: the new line is: GET /?cgi=1 HTTP/1.1
+
+2022-02-01 19:38:22.734640 [info]: pthread: 140318265923328, into to function parse_request_line()
+
+2022-02-01 19:38:22.734644 [info]: the method is: GET
+
+2022-02-01 19:38:22.734650 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734654 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734658 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734662 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:22.734666 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734670 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734674 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734678 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734682 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:22.734686 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734690 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734702 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734706 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734710 [info]: the new line is: Upgrade-Insecure-Requests: 1
+
+2022-02-01 19:38:22.734714 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734718 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734722 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734726 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734731 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:22.734735 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734738 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734741 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734744 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734747 [info]: the new line is: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+2022-02-01 19:38:22.734749 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734752 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734754 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734756 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734759 [info]: the new line is: Purpose: prefetch
+
+2022-02-01 19:38:22.734761 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734764 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734766 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734769 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734771 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:22.734773 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734776 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734778 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734781 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734783 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:22.734785 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734788 [info]: pthread: 140318265923328, into to function parse_line()
+
+2022-02-01 19:38:22.734790 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:22.734792 [info]: pthread: 140318265923328, into to function get_line()
+
+2022-02-01 19:38:22.734795 [info]: the new line is: 
+
+2022-02-01 19:38:22.734797 [info]: pthread: 140318265923328, into to function parse_headers()
+
+2022-02-01 19:38:22.734800 [info]: into here: text[0] == null
+
+2022-02-01 19:38:22.734802 [info]: pthread: 140318265923328, into to function do_request()
+
+2022-02-01 19:38:22.734805 [info]: the http url is /?cgi=1
+
+2022-02-01 19:38:22.734807 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:22.734810 [info]: the request content length is: 0
+
+2022-02-01 19:38:22.734812 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:22.734822 [info]: find the '?'
+
+2022-02-01 19:38:22.734825 [info]: pthread: 140318265923328, into to function process_write()
+
+2022-02-01 19:38:22.734827 [info]: into switch case CGI_REQUEST
+
+2022-02-01 19:38:22.734830 [info]: pthread: 140318265923328, into to function append_status_line()
+
+2022-02-01 19:38:22.735056 [info]: has adjust timer
+2022-02-01 19:38:22.735088 [info]: into main while loop
+
+2022-02-01 19:38:22.751920 [info]: into get epoll for-loop
+
+2022-02-01 19:38:22.751946 [info]: into EPOLLOUT
+
+2022-02-01 19:38:22.751969 [info]: I have send data
+
+2022-02-01 19:38:22.751972 [info]: into http connection's reset function
+
+2022-02-01 19:38:22.751987 [info]: has adjust timer
+2022-02-01 19:38:22.751992 [info]: into main while loop
+
+2022-02-01 19:38:24.052405 [info]: into sig_handler()
+
+2022-02-01 19:38:24.052457 [info]: interrupted by signo
+
+2022-02-01 19:38:24.052464 [info]: into main while loop
+
+2022-02-01 19:38:24.052470 [info]: into get epoll for-loop
+
+2022-02-01 19:38:24.052474 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:24.052487 [info]: into SIGALRM case
+
+2022-02-01 19:38:24.052491 [info]: timer tick
+
+2022-02-01 19:38:24.052533 [info]: Into tcp_connection::~tcp_connection()
+
+2022-02-01 19:38:24.052551 [info]: close connection, connection fd is 10
+
+2022-02-01 19:38:24.052557 [info]: into main while loop
+
+2022-02-01 19:38:29.052581 [info]: into sig_handler()
+
+2022-02-01 19:38:29.052628 [info]: interrupted by signo
+
+2022-02-01 19:38:29.052634 [info]: into main while loop
+
+2022-02-01 19:38:29.052638 [info]: into get epoll for-loop
+
+2022-02-01 19:38:29.052641 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:29.052647 [info]: into SIGALRM case
+
+2022-02-01 19:38:29.052650 [info]: timer tick
+
+2022-02-01 19:38:29.052694 [info]: Into tcp_connection::~tcp_connection()
+
+2022-02-01 19:38:29.052704 [info]: close connection, connection fd is 13
+
+2022-02-01 19:38:29.052710 [info]: into main while loop
+
+2022-02-01 19:38:34.052744 [info]: into sig_handler()
+
+2022-02-01 19:38:34.052791 [info]: interrupted by signo
+
+2022-02-01 19:38:34.052796 [info]: into main while loop
+
+2022-02-01 19:38:34.052801 [info]: into get epoll for-loop
+
+2022-02-01 19:38:34.052803 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:34.052810 [info]: into SIGALRM case
+
+2022-02-01 19:38:34.052812 [info]: timer tick
+
+2022-02-01 19:38:34.052818 [info]: into main while loop
+
+2022-02-01 19:38:39.052860 [info]: into sig_handler()
+
+2022-02-01 19:38:39.052915 [info]: interrupted by signo
+
+2022-02-01 19:38:39.052922 [info]: into main while loop
+
+2022-02-01 19:38:39.052929 [info]: into get epoll for-loop
+
+2022-02-01 19:38:39.052934 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:39.052943 [info]: into SIGALRM case
+
+2022-02-01 19:38:39.052947 [info]: timer tick
+
+2022-02-01 19:38:39.052996 [info]: Into tcp_connection::~tcp_connection()
+
+2022-02-01 19:38:39.053030 [info]: close connection, connection fd is 8
+
+2022-02-01 19:38:39.053039 [info]: into main while loop
+
+2022-02-01 19:38:39.088077 [info]: into get epoll for-loop
+
+2022-02-01 19:38:39.088126 [info]: the connFd is 8
+
+2022-02-01 19:38:39.088140 [info]: the tcp conection is built
+
+2022-02-01 19:38:39.088158 [info]: into main while loop
+
+2022-02-01 19:38:39.088164 [info]: into get epoll for-loop
+
+2022-02-01 19:38:39.088168 [info]: into EPOLLIN
+
+2022-02-01 19:38:39.088173 [info]: pthread: 140318274320192, into to function tcp_connection::read_data()
+
+2022-02-01 19:38:39.088203 [info]: has read data
+
+2022-02-01 19:38:39.088208 [info]: pthread: 140318274320192, into to function append()
+
+2022-02-01 19:38:39.088218 [info]: has adjust timer
+2022-02-01 19:38:39.088222 [info]: into main while loop
+
+2022-02-01 19:38:39.088235 [info]: pthread: 140318240745216, into to function process()
+
+2022-02-01 19:38:39.088243 [info]: pthread: 140318240745216, into to function http_connection::process_read()
+
+2022-02-01 19:38:39.088247 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088252 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088257 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088261 [info]: the new line is: GET /favicon.ico HTTP/1.1
+
+2022-02-01 19:38:39.088265 [info]: pthread: 140318240745216, into to function parse_request_line()
+
+2022-02-01 19:38:39.088270 [info]: the method is: GET
+
+2022-02-01 19:38:39.088277 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088282 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088285 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088290 [info]: the new line is: Host: 1.15.32.184:8080
+
+2022-02-01 19:38:39.088294 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088298 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088303 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088307 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088311 [info]: the new line is: Connection: keep-alive
+
+2022-02-01 19:38:39.088315 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088328 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088333 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088336 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088341 [info]: the new line is: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+
+2022-02-01 19:38:39.088345 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088349 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088353 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088357 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088362 [info]: the new line is: Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+
+2022-02-01 19:38:39.088368 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088372 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088376 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088379 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088384 [info]: the new line is: Referer: http://1.15.32.184:8080/?cgi=1
+
+2022-02-01 19:38:39.088387 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088407 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088411 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088415 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088419 [info]: the new line is: Accept-Encoding: gzip, deflate
+
+2022-02-01 19:38:39.088423 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088427 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088431 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088435 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088439 [info]: the new line is: Accept-Language: zh-CN,zh;q=0.9
+
+2022-02-01 19:38:39.088442 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088446 [info]: pthread: 140318240745216, into to function parse_line()
+
+2022-02-01 19:38:39.088450 [info]: the parse_line()'s ret is: 0
+
+2022-02-01 19:38:39.088453 [info]: pthread: 140318240745216, into to function get_line()
+
+2022-02-01 19:38:39.088457 [info]: the new line is: 
+
+2022-02-01 19:38:39.088461 [info]: pthread: 140318240745216, into to function parse_headers()
+
+2022-02-01 19:38:39.088465 [info]: into here: text[0] == null
+
+2022-02-01 19:38:39.088468 [info]: pthread: 140318240745216, into to function do_request()
+
+2022-02-01 19:38:39.088473 [info]: the http url is /favicon.ico
+
+2022-02-01 19:38:39.088477 [info]: the http version is HTTP/1.1
+
+2022-02-01 19:38:39.088481 [info]: the request content length is: 0
+
+2022-02-01 19:38:39.088484 [info]: the linger information is: keep-alive
+
+2022-02-01 19:38:39.088489 [info]: have not find '?'
+
+2022-02-01 19:38:39.088501 [warning]: the file dose not exist
+
+2022-02-01 19:38:39.088505 [info]: pthread: 140318240745216, into to function process_write()
+
+2022-02-01 19:38:39.088509 [info]: pthread: 140318240745216, into to function append_status_line()
+
+2022-02-01 19:38:39.088514 [info]: into send html file
+
+2022-02-01 19:38:39.088518 [info]: pthread: 140318240745216, into to function append_headers()
+
+2022-02-01 19:38:39.088522 [info]: pthread: 140318240745216, into to function append_content_length()
+
+2022-02-01 19:38:39.088527 [info]: pthread: 140318240745216, into to function append_linger()
+
+2022-02-01 19:38:39.088531 [info]: pthread: 140318240745216, into to function append_blank_line()
+
+2022-02-01 19:38:39.088833 [info]: into get epoll for-loop
+
+2022-02-01 19:38:39.088846 [info]: into EPOLLOUT
+
+2022-02-01 19:38:39.088872 [info]: I have send data
+
+2022-02-01 19:38:39.088882 [info]: into http connection's reset function
+
+2022-02-01 19:38:39.088889 [info]: has adjust timer
+2022-02-01 19:38:39.088893 [info]: into main while loop
+
+2022-02-01 19:38:44.053064 [info]: into sig_handler()
+
+2022-02-01 19:38:44.053112 [info]: interrupted by signo
+
+2022-02-01 19:38:44.053117 [info]: into main while loop
+
+2022-02-01 19:38:44.053121 [info]: into get epoll for-loop
+
+2022-02-01 19:38:44.053124 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:44.053130 [info]: into SIGALRM case
+
+2022-02-01 19:38:44.053133 [info]: timer tick
+
+2022-02-01 19:38:44.053139 [info]: into main while loop
+
+2022-02-01 19:38:49.053167 [info]: into sig_handler()
+
+2022-02-01 19:38:49.053217 [info]: interrupted by signo
+
+2022-02-01 19:38:49.053223 [info]: into main while loop
+
+2022-02-01 19:38:49.053228 [info]: into get epoll for-loop
+
+2022-02-01 19:38:49.053231 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:49.053238 [info]: into SIGALRM case
+
+2022-02-01 19:38:49.053240 [info]: timer tick
+
+2022-02-01 19:38:49.053245 [info]: into main while loop
+
+2022-02-01 19:38:54.053282 [info]: into sig_handler()
+
+2022-02-01 19:38:54.053334 [info]: interrupted by signo
+
+2022-02-01 19:38:54.053340 [info]: into main while loop
+
+2022-02-01 19:38:54.053353 [info]: into get epoll for-loop
+
+2022-02-01 19:38:54.053356 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:54.053363 [info]: into SIGALRM case
+
+2022-02-01 19:38:54.053365 [info]: timer tick
+
+2022-02-01 19:38:54.053396 [info]: Into tcp_connection::~tcp_connection()
+
+2022-02-01 19:38:54.053409 [info]: close connection, connection fd is 8
+
+2022-02-01 19:38:54.053415 [info]: into main while loop
+
+2022-02-01 19:38:59.053459 [info]: into sig_handler()
+
+2022-02-01 19:38:59.053511 [info]: interrupted by signo
+
+2022-02-01 19:38:59.053520 [info]: into main while loop
+
+2022-02-01 19:38:59.053526 [info]: into get epoll for-loop
+
+2022-02-01 19:38:59.053529 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:38:59.053538 [info]: into SIGALRM case
+
+2022-02-01 19:38:59.053545 [info]: into main while loop
+
+2022-02-01 19:39:04.053580 [info]: into sig_handler()
+
+2022-02-01 19:39:04.053627 [info]: interrupted by signo
+
+2022-02-01 19:39:04.053633 [info]: into main while loop
+
+2022-02-01 19:39:04.053637 [info]: into get epoll for-loop
+
+2022-02-01 19:39:04.053640 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:04.053646 [info]: into SIGALRM case
+
+2022-02-01 19:39:04.053652 [info]: into main while loop
+
+2022-02-01 19:39:09.053677 [info]: into sig_handler()
+
+2022-02-01 19:39:09.053723 [info]: interrupted by signo
+
+2022-02-01 19:39:09.053728 [info]: into main while loop
+
+2022-02-01 19:39:09.053733 [info]: into get epoll for-loop
+
+2022-02-01 19:39:09.053736 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:09.053742 [info]: into SIGALRM case
+
+2022-02-01 19:39:09.053748 [info]: into main while loop
+
+2022-02-01 19:39:14.053776 [info]: into sig_handler()
+
+2022-02-01 19:39:14.053822 [info]: interrupted by signo
+
+2022-02-01 19:39:14.053827 [info]: into main while loop
+
+2022-02-01 19:39:14.053832 [info]: into get epoll for-loop
+
+2022-02-01 19:39:14.053835 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:14.053842 [info]: into SIGALRM case
+
+2022-02-01 19:39:14.053847 [info]: into main while loop
+
+2022-02-01 19:39:19.053871 [info]: into sig_handler()
+
+2022-02-01 19:39:19.053920 [info]: interrupted by signo
+
+2022-02-01 19:39:19.053926 [info]: into main while loop
+
+2022-02-01 19:39:19.053930 [info]: into get epoll for-loop
+
+2022-02-01 19:39:19.053933 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:19.053939 [info]: into SIGALRM case
+
+2022-02-01 19:39:19.053944 [info]: into main while loop
+
+2022-02-01 19:39:24.053975 [info]: into sig_handler()
+
+2022-02-01 19:39:24.054024 [info]: interrupted by signo
+
+2022-02-01 19:39:24.054028 [info]: into main while loop
+
+2022-02-01 19:39:24.054033 [info]: into get epoll for-loop
+
+2022-02-01 19:39:24.054036 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:24.054042 [info]: into SIGALRM case
+
+2022-02-01 19:39:24.054048 [info]: into main while loop
+
+2022-02-01 19:39:29.054078 [info]: into sig_handler()
+
+2022-02-01 19:39:29.054129 [info]: interrupted by signo
+
+2022-02-01 19:39:29.054143 [info]: into main while loop
+
+2022-02-01 19:39:29.054148 [info]: into get epoll for-loop
+
+2022-02-01 19:39:29.054150 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:29.054156 [info]: into SIGALRM case
+
+2022-02-01 19:39:29.054162 [info]: into main while loop
+
+2022-02-01 19:39:34.054194 [info]: into sig_handler()
+
+2022-02-01 19:39:34.054238 [info]: interrupted by signo
+
+2022-02-01 19:39:34.054242 [info]: into main while loop
+
+2022-02-01 19:39:34.054247 [info]: into get epoll for-loop
+
+2022-02-01 19:39:34.054250 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:34.054256 [info]: into SIGALRM case
+
+2022-02-01 19:39:34.054261 [info]: into main while loop
+
+2022-02-01 19:39:39.054284 [info]: into sig_handler()
+
+2022-02-01 19:39:39.054379 [info]: interrupted by signo
+
+2022-02-01 19:39:39.054409 [info]: into main while loop
+
+2022-02-01 19:39:39.054424 [info]: into get epoll for-loop
+
+2022-02-01 19:39:39.054436 [info]: into sockerFd == pipeFd[0]
+
+2022-02-01 19:39:39.054452 [info]: into SIGALRM case
+
+2022-02-01 19:39:39.054468 [info]: into main while loop
+
